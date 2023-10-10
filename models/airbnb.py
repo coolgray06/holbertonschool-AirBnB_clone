@@ -10,4 +10,4 @@ class MyConsole(cmd.Cmd):
         print("")
 
 if __name__ == "__main__":
-    MyConsole().cmdloop()
+    MyConsole.cmdloop()

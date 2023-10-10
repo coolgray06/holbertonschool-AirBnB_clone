@@ -28,7 +28,7 @@ class base_model:
     
     def update_name(self, new_name):
         self.name = new_name
-        
+
         
     
     def to_dict(self):

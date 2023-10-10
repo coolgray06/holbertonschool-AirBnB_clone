@@ -19,6 +19,4 @@ print(model_1,model_2)
 
 person2 = bm.user.createUser("pas!","Eli",26)
 
-
-print(person1)
 print(person2)
