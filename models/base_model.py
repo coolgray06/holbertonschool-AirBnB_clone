@@ -32,8 +32,7 @@ class base_model:
     def to_dict(self):
         #returns a dictionary containing all keys/values
         new_dict = dict(self.__dict__)
-        new_dict['created_at'] = self.__dict__['created_at'].isoformat() 
-        new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
+        new_dict['created_at'] = self.created_at.isoformat() 
+        new_dict['updated_at'] = self.updated_at.isoformat()
         new_dict['__class__'] = self.__class__.__name__
-        return new_dict
-    
+        return new_dict 
