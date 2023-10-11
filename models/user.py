@@ -1,12 +1,12 @@
+#!/usr/bin/python3
 
-class user:
-    userID = str(uuid.uuid4())
-    password: str
-    name: str
-    age: int
+#the class user will inherent from BseModel
+from models.base_model import BaseModel as bm
 
-    def createUser(password, name, age):
-        user.password = password
-        user.name = name
-        user.age = age
-        return user
+class User(bm):
+    #class for User
+
+    email = ""
+    password = ""
+    first_name = ""
+    last_name = ""
