@@ -1,64 +1,39 @@
+#!/usr/bin/python3
+
 import uuid
 import datetime
+import models
 
 class base_model:
+    #class for basemodel
     id: str
     created_at: datetime.datetime
     updated_at: datetime.datetime
     name: str
-
-
 
     def __init__(self, name):
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
         self.name = name
+        models.storage.new(self)
 
 
     def __str__(self):
+        #string for basemodel instance
         return f'[{__class__.__name__}] ({self.id}) {self.__dict__}'
     
 
-
     def save(self):
         self.updated_at = datetime.datetime.now()
-
+        models.storage.save()
         return self
-    
-    def update_name(self, new_name):
-        self.name = new_name
-        
-        
-    
+
     def to_dict(self):
-        print(self.__dict__)
-
-
-
-
-
-
-
-
-
-class user:
-    userID = str(uuid.uuid4())
-    password: str
-    name: str
-    age: int
-
-    def createUser(password, name, age):
-        user.password = password
-        user.name = name
-        user.age = age
-        return user
-
-
-
-
-class house:
-    address: set
-    numBed: int
-    numBath: int
-    guests: user
+        #returns a dictionary containing all keys/values
+        new_dict = dict(self.__dict__)
+        new_dict['created_at'] = self.__dict__['created_at'].isoformat() 
+        new_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
+        new_dict['__class__'] = self.__class__.__name__
+        return new_dict
+    
